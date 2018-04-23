@@ -2,7 +2,6 @@
 public class main {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 		abb arbol = new abb ();
 	    arbol.insertar (100);
 	    arbol.insertar (10);
