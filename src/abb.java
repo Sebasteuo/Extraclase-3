@@ -38,6 +38,7 @@ public class abb {
             if (a < raiz.dato){
                 (raiz.hi).insertar(a);
             }
+            
         }
     }
  
@@ -83,6 +84,7 @@ public class abb {
         }
         return arbolito;
     }
+
  
     public boolean existe(int a){
     if (!esVacio()) {
