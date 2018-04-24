@@ -13,7 +13,7 @@ public class main {
 	    arbol.insertar (10);
 	    arbol.insertar (100);
 	    arbol.insertar (110);
-	    arbol.eliminar (8);
+	  
 
 
 

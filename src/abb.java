@@ -60,8 +60,8 @@ public class abb {
  
     public void posOrder(){
         if (!esVacio()) {
-            raiz.hd.posOrder();
             raiz.hi.posOrder();
+            raiz.hd.posOrder();
             System.out.print( raiz.dato + ", "  );
  
         }
