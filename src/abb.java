@@ -151,22 +151,26 @@ public class abb {
  
     public void eliminar(int a) {
         abb paraEliminar = buscar(a);
-        if (!paraEliminar.esVacio()) {
-            if (paraEliminar.esHoja()) {
-                paraEliminar.raiz = null;
-            }
-            else {
-                if (!paraEliminar.raiz.hi.esVacio() && !paraEliminar.raiz.hd.esVacio()) {
-                    paraEliminar.raiz.dato = paraEliminar.raiz.hd.buscarMin();
-                }
-                else {
-                    if (paraEliminar.raiz.hi.esVacio()) {
-                        paraEliminar.raiz = paraEliminar.raiz.hd.raiz;
-                    }else{
-                        paraEliminar.raiz = paraEliminar.raiz.hi.raiz;
-                    }
+        if(existe(a)){
+	        if (!paraEliminar.esVacio()) {
+	            if (paraEliminar.esHoja()) {
+	                paraEliminar.raiz = null;
+	            }
+	            else {
+	                if (!paraEliminar.raiz.hi.esVacio() && !paraEliminar.raiz.hd.esVacio()) {
+	                    paraEliminar.raiz.dato = paraEliminar.raiz.hd.buscarMin();
+	                }
+	                else {
+	                    if (paraEliminar.raiz.hi.esVacio()) {
+	                        paraEliminar.raiz = paraEliminar.raiz.hd.raiz;
+	                    }else{
+	                        paraEliminar.raiz = paraEliminar.raiz.hi.raiz;
+	                    }
                 }
             }
         }
-    }
+   }else {
+    	nodoArbol raiz = new nodoArbol();
+    	
+    }}
 }
