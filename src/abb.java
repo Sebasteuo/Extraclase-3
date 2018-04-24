@@ -1,3 +1,6 @@
+
+import java.util.ArrayList;
+
 /**
  * 
  * @author sebastianalba
@@ -224,5 +227,75 @@ public class abb {
 	        }
     	
     }
-    		}
+    
+    public ArrayList<Integer> almacenarInOrder(nodoArbol nodo){
+        ArrayList<Integer> lista1 = new ArrayList<>();
+        ArrayList<Integer> lista2 = almacenarInOrderUtil(nodo, lista1);
+        return lista2;
+    }
+    
+    public ArrayList<Integer> almacenarInOrderUtil(nodoArbol nodo, ArrayList<Integer> lista){
+        if(nodo == null){
+            return null;
+        }
+        almacenarInOrderUtil(nodo.hi, lista);
+        lista.add(nodo.dato);
+        almacenarInOrderUtil(nodo.hd, lista);
+        return lista;
+    }
+    
+    public ArrayList<Integer> unir(ArrayList<Integer> lista1, ArrayList<Integer> lista2, int m, int n){
+        ArrayList<Integer> lista3 = new ArrayList<>();
+        int i = 0;
+        int j =0;
+        
+        while(i<m && j<n){
+            if(lista1.get(i) < lista2.get(j)){
+                lista3.add(lista1.get(i));
+                i++;
+            }else{
+                lista3.add(lista2.get(j));
+                j++;
+            }
+        }
+        
+        while(i<m){
+            lista3.add(lista1.get(i));
+            i++;
+        }
+        
+        while(j<n){
+            lista3.add(lista2.get(j));
+            j++;
+        }
+        
+        return lista3;
+    }
+    
+    public nodoArbol ALtoBST(ArrayList<Integer> lista, int comienzo, int finale){
+        if(comienzo > finale){
+            return null;
+        }
+        int mitad = (comienzo + finale)/2;
+        nodoArbol nodo = new nodoArbol();
+        nodo.dato = lista.get(mitad);
+        
+        nodo.hi = ALtoBST(lista, comienzo, mitad-1);
+        nodo.hd = ALtoBST(lista, mitad+1, finale);
+        
+        return nodo;
+    }
+    
+    public nodoArbol unirArboles(nodoArbol nodo1, nodoArbol nodo2){
+        ArrayList<Integer> lista1 = almacenarInOrder(nodo1);
+        
+        ArrayList<Integer> lista2 = almacenarInOrder(nodo2);
+        
+        ArrayList<Integer> lista3 = unir (lista1, lista2, lista1.size(), lista2.size());
+        
+        nodoArbol nodo = ALtoBST(lista3, 0, lista3.size()-1);
+        
+        return nodo;
+    }
+}
 //}
